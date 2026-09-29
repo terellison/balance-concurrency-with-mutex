@@ -20,8 +20,8 @@ int main(size_t argc, char* argv[])
 	}
 
 	size_t threads = std::atoi(argv[1]);
-	std::cout << "Number of threads for deposits and withdrawals: " << threads << std::endl;
-	std::cout << "Starting balance: " << balance << std::endl;
+	std::cout << "Number of threads: " << threads << std::endl;
+	std::cout << "Initial balance: " << balance << std::endl;
 
 	for (size_t i = 0; i < threads; ++i)
 	{
@@ -41,7 +41,6 @@ void deposit(int amt)
 	{
 		std::lock_guard<std::mutex> lock(balanceMutex);
 		balance += amt;
-		std::cout << "Deposit - New balance: " << balance << std::endl;
 	}
 }
 
@@ -51,6 +50,5 @@ void withdraw(int amt)
 	{
 		std::lock_guard<std::mutex> lock(balanceMutex);
 		balance -= amt;
-		std::cout << "Withdraw - New balance: " << balance << std::endl;
 	}
 }

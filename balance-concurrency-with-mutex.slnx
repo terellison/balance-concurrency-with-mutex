@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="balance-concurrency-with-mutex/balance-concurrency-with-mutex.vcxproj" />
+  <Project Path="balance-concurrency-with-mutex/balance-concurrency-with-mutex.vcxproj" Id="457c430d-af39-4afe-b4fd-ab66b6824ad2" />
 </Solution>
