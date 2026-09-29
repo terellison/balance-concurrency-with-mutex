@@ -26,7 +26,7 @@ int main(size_t argc, char* argv[])
 	for (size_t i = 0; i < threads; ++i)
 	{
 		depositThreadPool.emplace_back(deposit, 100);
-		depositThreadPool.emplace_back(withdraw, 100);
+		withdrawThreadPool.emplace_back(withdraw, 100);
 	}
 
 	for (auto& d : depositThreadPool) d.join();
@@ -39,7 +39,6 @@ void deposit(int amt)
 {
 	for (size_t i = 0; i < 100; ++i)
 	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 		std::lock_guard<std::mutex> lock(balanceMutex);
 		balance += amt;
 		std::cout << "Deposit - New balance: " << balance << std::endl;
